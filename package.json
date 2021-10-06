@@ -1,0 +1,34 @@
+{
+  "name": "teuxdeux-electron-app",
+  "version": "1.0.0",
+  "description": "TeuxDeux Electron App",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "main.js",
+  "scripts": {
+    "clean": "rm -fr ./dist",
+    "lint": "eslint . --report-unused-disable-directives",
+    "check-package": "task check-package",
+    "start": "DEV=1 nodemon -w . --exec ./node_modules/.bin/electron .",
+    "darwin": "./scripts/darwin",
+    "dmg": "./scripts/dmg",
+    "package": "npm run darwin && npm run dmg"
+  },
+  "devDependencies": {
+    "electron": "15.1.1",
+    "electron-installer-dmg": "3.0.0",
+    "electron-packager": "15.4.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-config-unobtrusive": "1.2.5",
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-prettier": "4.0.0",
+    "nodemon": "2.0.13",
+    "prettier": "2.4.1"
+  },
+  "electronProduct": {
+    "name": "TeuxDeux",
+    "build": "1",
+    "dist": "./dist"
+  }
+}

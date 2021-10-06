@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+platform=darwin
+arch=x64
+name=$(cat package.json | jq -r '.electronProduct.name')
+dist=$(cat package.json | jq -r '.electronProduct.dist')
+app=$dist/$name-$platform-$arch/$name.app
+dmg=$(echo $name | tr "[:upper:]" "[:lower:]")
+
+./node_modules/.bin/electron-installer-dmg \
+  $app \
+  $dmg \
+  --out $dist \
+  --overwrite

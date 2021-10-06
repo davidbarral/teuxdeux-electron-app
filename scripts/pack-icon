@@ -1,0 +1,17 @@
+#!/bin/bash
+
+src=./assets/icon-512.png
+icons=./assets/AppIcon.iconset
+
+convert $src -resize   16x16   $icons/icon_16x16.png
+convert $src -resize   32x32   $icons/icon_16x16@2x.png
+convert $src -resize   32x32   $icons/icon_32x32.png
+convert $src -resize   64x64   $icons/icon_32x32@2x.png
+convert $src -resize  128x128  $icons/icon_128x12.png
+convert $src -resize  256x256  $icons/icon_128x128@2x.png
+convert $src -resize  256x256  $icons/icon_256x256.png
+cp      $src                   $icons/icon_256x256@2x.png
+cp      $src                   $icons/icon_512x512.png
+convert $src -resize 1024x1024 $icons/icon_512x512@2x.png
+
+iconutil -c icns $icons
